@@ -17,8 +17,6 @@ services:
       && python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
-    volumes:
-      - ./alotech:/code
     environment:
       - REDIS_URL=redis://redis:6379
       - DJANGO_SETTINGS_MODULE=alotech.settings
