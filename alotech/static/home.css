@@ -1,0 +1,73 @@
+html,
+body {
+	height: 100%;
+	font-family: Verdana, Geneva, sans-serif;
+	background-color: #ced2de;
+}
+
+#page {
+	height: 100%;
+	display: grid;
+	grid-template-areas: "header" "app";
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr;
+	padding: 30px;
+}
+
+#header {
+	grid-area: header;
+}
+
+#app {
+	grid-area: app;
+	display: flex;
+	flex-direction: column;
+}
+
+#search-box {
+	display: flex;
+	align-self: flex-end;
+}
+
+#loading-gif {
+	height: 40px;
+	display: none;
+}
+
+#track-list {
+	display: flex;
+	flex-direction: column;
+}
+
+#track-list .track-box {
+	display: grid;
+	grid-template-areas: "album-image description" "album-image preview";
+	grid-template-rows: 90px 90px;
+	column-gap: 10px;
+	grid-template-columns: 160px 1fr;
+	border: 1px solid #858fad;
+	padding: 10px;
+	margin: 10px;
+}
+#track-list .album-image {
+	grid-area: album-image;
+	width: 160px;
+	height: 160px;
+}
+
+#track-list .description {
+	grid-area: description;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+#track-list .preview {
+	grid-area: preview;
+	display: flex;
+}
+
+#track-list .preview-video {
+	height: 50px;
+	width: 500px;
+}

@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    
+  app:
+    build:
+      context: alotech
+      dockerfile: Dockerfile
+    image: yusufertekin/alotech
+    command: >
+      bash -c "python wait_for_it.py redis 6379
+      && python manage.py load_genres static/data/genres.json 
+      && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./alotech:/code
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DJANGO_SETTINGS_MODULE=alotech.settings
+    env_file:
+      - .env
+    depends_on:
+      - redis
