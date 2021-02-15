@@ -30,6 +30,10 @@ Once a request made for a genre, result of randomly chosen artist is cached for 
 * NUM_OF_TOP_TRACKS = 10
 * TRACKS_CACHE_TIMEOUT = 300 # 5 MINS
 
+# Requirements
+* Django==3.1.6
+* django-redis==4.12.1
+
 # Developer Notes
 1. urllib is used to eliminate the need of external library. However, for ease use I'd prefer using requests library.
 2. This project contains single endpoint if it needs to be expanded, I'd use django rest framework
